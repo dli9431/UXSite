@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UXSite", "UXSite\UXSite.csproj", "{7CBA865E-91A7-465F-B830-6B50AED532B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{5AA6DEFA-DD9B-40D3-BF9F-C1A8636CC5F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UX", "UX\UX.csproj", "{6B2BE5A8-93B5-4306-898E-D6E97A89ED2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7CBA865E-91A7-465F-B830-6B50AED532B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CBA865E-91A7-465F-B830-6B50AED532B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CBA865E-91A7-465F-B830-6B50AED532B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CBA865E-91A7-465F-B830-6B50AED532B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA6DEFA-DD9B-40D3-BF9F-C1A8636CC5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA6DEFA-DD9B-40D3-BF9F-C1A8636CC5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA6DEFA-DD9B-40D3-BF9F-C1A8636CC5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA6DEFA-DD9B-40D3-BF9F-C1A8636CC5F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B2BE5A8-93B5-4306-898E-D6E97A89ED2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B2BE5A8-93B5-4306-898E-D6E97A89ED2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B2BE5A8-93B5-4306-898E-D6E97A89ED2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B2BE5A8-93B5-4306-898E-D6E97A89ED2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
