@@ -3,30 +3,41 @@
     ViewBag.Title = "Messages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (ViewBag.user != null)
+{
+    <span>Logged in as: </span><div id="currentUser">@ViewBag.user</div>
+}
+
 
 <h2>Messages</h2>
 
-<div ng-app="chat-app">
-    <div ng-controller="ChatController">
-        <div>
-            Name: <input type="text" ng-model="name" disabled/><br />
-            Message: <input type="text" ng-model="message" /><br />
-            <input type="button" value="Send" ng-click="newMessage()" />
-        </div>
+<div ng-app="msg-app">
+    <div ng-controller="MsgController">
         <div>
             <ul>
-                <li ng-repeat="chat in messages">
-                    <span ng-bind="chat"></span>
+                <li ng-repeat="msg in messages">
+                    Title: <span>{{msg.Title}}</span><br/>
+                    From: <span>{{msg.FromDisplay}}</span><br/>
+                    Body: <span>{{msg.Body}}</span>
+                    
+                    @*<span ng-bind="msgTitle"></span>
+                    <span ng-bind="msgFrom"></span>
+                    <span ng-bind="msgDate"></span>*@
                 </li>
             </ul>
         </div>
-    </div>    
+    </div>
 </div>
 
+<br/>
+<div id="messageList"></div>
+
 @section Scripts {
-<script src="/Scripts/jquery-1.10.2.js"></script>
-<script src="/Scripts/jquery.signalR-2.2.1.js"></script>
-<script src="/signalr/hubs"></script>
-<script src="/Scripts/angular.js"></script>
-<script src="/Scripts/AngularChat/chat.js"></script>   
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/Angular/message.js"></script>
+    <script type="text/javascript">
+        var user = $("#currentUser").text();
+        GetMessagesUser(user);
+    </script>
 }

@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities.cs" />
+    <Compile Include="Enums\AttachmentType.cs" />
+    <Compile Include="Enums\Status.cs" />
     <Compile Include="Migrations\201610140417136_init.cs" />
     <Compile Include="Migrations\201610140417136_init.Designer.cs">
       <DependentUpon>201610140417136_init.cs</DependentUpon>
@@ -66,8 +68,18 @@
     <Compile Include="Migrations\201610150231373_DisplayName.Designer.cs">
       <DependentUpon>201610150231373_DisplayName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610172202113_ToDisplayFromDisplay.cs" />
+    <Compile Include="Migrations\201610172202113_ToDisplayFromDisplay.Designer.cs">
+      <DependentUpon>201610172202113_ToDisplayFromDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610180151325_QATest.cs" />
+    <Compile Include="Migrations\201610180151325_QATest.Designer.cs">
+      <DependentUpon>201610180151325_QATest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\UserAttachment.cs" />
+    <Compile Include="Models\QaTest.cs" />
     <Compile Include="Models\SystemInfo.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Message.cs" />
@@ -83,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610150231373_DisplayName.resx">
       <DependentUpon>201610150231373_DisplayName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610172202113_ToDisplayFromDisplay.resx">
+      <DependentUpon>201610172202113_ToDisplayFromDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610180151325_QATest.resx">
+      <DependentUpon>201610180151325_QATest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

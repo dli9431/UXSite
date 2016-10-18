@@ -23,9 +23,9 @@ namespace DataModel.Models
 
         public virtual string Title { get; set; }
 
-        public virtual string FromID { get; set; }
+        public virtual string FromDisplay { get; set; }
 
-        public virtual string ToID { get; set; }
+        public virtual string ToDisplay { get; set; }
 
         public virtual string Body { get; set; }
 

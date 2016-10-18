@@ -6,10 +6,12 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DataModel;
 using DataModel.Models;
+using Microsoft.AspNet.Identity;
 
 namespace UX.Controllers
 {
@@ -24,17 +26,28 @@ namespace UX.Controllers
             return db.Messages;
         }
 
-        // GET: api/Messages/5
-        [ResponseType(typeof(Message))]
-        public IHttpActionResult GetMessage(int id)
+        // GET: api/Messages/GetMsgs
+        // Gets all of a user's messages
+        [HttpGet]
+        [Route("GetMsgs")]
+        public IHttpActionResult GetMsgs(string id)
         {
-            Message message = db.Messages.Find(id);
-            if (message == null)
+            var current = HttpContext.Current.User.Identity.GetUserName();
+            if (current == id)
             {
-                return NotFound();
+                var user = db.Users.FirstOrDefault(a => a.Email == id);
+                var msgs = db.Messages.Where(a => a.ToDisplay == user.DisplayName).ToList();
+                if (msgs.Count < 0)
+                {
+                    return NotFound();
+                }
+                if (msgs.Count == 0)
+                {
+                    return Ok("No messages");
+                }
+                return Ok(msgs);
             }
-
-            return Ok(message);
+            return NotFound();
         }
 
         // PUT: api/Messages/5

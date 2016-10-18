@@ -12,6 +12,7 @@ using DataModel;
 using DataModel.Models;
 using System.Web;
 using System.Web.Script.Serialization;
+using Microsoft.AspNet.Identity;
 
 namespace UX.Controllers
 {
@@ -22,7 +23,7 @@ namespace UX.Controllers
 
         [HttpGet]
         [Route("GetUsers")]
-        // GET: api/GetUsers
+        // GET: api/Users/GetUsers
         //public IQueryable<ApplicationUser> GetUsers()
         public List<string> GetUsers()
         {
@@ -34,21 +35,34 @@ namespace UX.Controllers
 
         [HttpGet]
         [Route("GetCurrent")]
-        // GET: api/GetCurrentUser
+        // GET: api/Users/GetCurrent
         public IHttpActionResult GetCurrentUser()
         {
-            var current = HttpContext.Current.User.Identity.Name;
-            //ApplicationUser user = db.ApplicationUsers.Find(current);
-            var user = db.Users.FirstOrDefault(a => a.UserName == current);
+            //var user = db.Users.FirstOrDefault(a => a.Email == id);
+            //if (user == null)
+            //{
+            //    return NotFound();
+            //}
+            ////return Ok(new JavaScriptSerializer().Serialize(user.DisplayName));
+            //return Ok(user.DisplayName);
+
+            var current = HttpContext.Current.User.Identity.GetUserName();
+
+            var user = db.Users.FirstOrDefault(a => a.Email == current);
             if (user == null)
             {
                 return NotFound();
             }
             //return Ok(new JavaScriptSerializer().Serialize(user.DisplayName));
             return Ok(user.DisplayName);
+
+            //ApplicationUser user = db.ApplicationUsers.Find(current);
+            //return NotFound();
         }
 
         // GET: api/Users/5
+        [HttpGet]
+        [Route("GetAppUser")]
         [ResponseType(typeof(ApplicationUser))]
         public IHttpActionResult GetApplicationUser(string id)
         {

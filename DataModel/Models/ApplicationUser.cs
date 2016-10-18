@@ -66,6 +66,14 @@ namespace DataModel.Models
             set { m_Messages = value; }
         }
         private ICollection<Message> m_Messages;
-                
+
+        //QA Test
+        public virtual ICollection<QaTest> QaTests
+        {
+            get { return m_QaTests ?? (m_QaTests = new HashSet<QaTest>()); }
+            set { m_QaTests = value; }
+        }
+        private ICollection<QaTest> m_QaTests;
+
     }
 }

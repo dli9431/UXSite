@@ -33,9 +33,23 @@ namespace UX.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Chat()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.user = User.Identity.Name;
+                return View();
+            }
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Messages()
         {
-            if (User.Identity.IsAuthenticated) return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.user = User.Identity.Name;
+                return View();
+            }
             return RedirectToAction("Index");
         }
     }

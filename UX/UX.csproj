@@ -210,10 +210,11 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\AngularChat\chat.js" />
-    <Content Include="Scripts\AngularChat\userController.js" />
-    <Content Include="Scripts\AngularChat\userFactory.js" />
-    <Content Include="Scripts\AngularChat\users.js" />
+    <Content Include="Scripts\Angular\message.js" />
+    <Content Include="Scripts\Angular\chat.js" />
+    <Content Include="Scripts\Angular\userController.js" />
+    <Content Include="Scripts\Angular\userFactory.js" />
+    <Content Include="Scripts\Angular\users.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -265,8 +266,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Messages.cshtml" />
+    <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Home\UserList.cshtml" />
+    <Content Include="Views\Home\Messages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
