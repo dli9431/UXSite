@@ -1,50 +1,42 @@
-﻿function GetMessagesUser(email) {
-    var app = angular.module('msg-app', []);
-    app.controller('MsgController',
-        function($scope, $http) {
-            console.log(email);
-            var msgs = [];
-            //get list of messages
-            //$.getJSON('/api/Messages/GetMsgs',
-            //    function(response) {
-            //        msgs = response.messages;
-            //    });
-            $http({
-                    url: '/api/Messages/GetMsgs',
-                    method: 'GET',
-                    params: { id: email }
-                })
-                .then(function(response) {
-                    //msgs = response.messages;
-                    //console.log(msgs);
-                    //console.log(response);
-                    //$("#messageList").append(response);
-                    $scope.messages = response.data;
+﻿var app = angular.module("msg-app", []);
+app.controller("MsgController",
+    function ($scope, $http) {
+        //$scope.send = function () {
+        //    console.log($scope.messages);
+        //};
+        var email = $("#currentUser").text();
+        console.log(email);
+        var msgs = [];
+        //get list of messages
+        
+        $http({
+            url: "/api/Messages/GetMsgs",
+            method: "GET",
+            params: { id: email }
+        }).then(function (response) {
+            msgs = response.messages;
+            //console.log(msgs);
+            //console.log(response.data);
+            $scope.messages = response.data;
+        }), function error(response) {
+            console.log(response);
+        };
 
-                }), function error(response) {
-                console.log(response);
-            };
+        $scope.send = function () {
+            console.log($scope.messages[0].ToDisplay);
+            console.log($scope.messages[0].FromDisplay);
+            console.log($scope.messages[0].Created);
+        };
+    }
+);
 
 
-    //$http.get('/api/Message/GetMsgs?displayName=').then(function (response) {
-    //    $scope.messages = response.data;
-    //});
+app.controller('myCtrl', function ($scope) {
+    $scope.firstname = "John";
+    $scope.lastname = "Doe";
 
+    $("#sendMsg").click(function () {
+        console.log($scope.firstname + " " + $scope.lastname);
+        console.log($("#msgList").text());
     });
-};
-
-
-//(function () {
-//    var app = angular.module('msg-app', []);
-//    app.controller('MsgController', function ($scope, $http) {
-//        //var user = $("#currentUser").val();
-//        //console.log(user);
-//        //var msgDict =
-//        //get list of messages
-//        $http.get('/api/Message/GetMsgs?displayName=').then(function(response) {
-//            $scope.messages = response.data;
-//        });
-        
-        
-//    });
-//}());
+});

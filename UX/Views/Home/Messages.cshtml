@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Messages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -15,29 +14,25 @@
     <div ng-controller="MsgController">
         <div>
             <ul>
-                <li ng-repeat="msg in messages">
-                    Title: <span>{{msg.Title}}</span><br/>
+                <li ng-repeat="msg in messages" id="msgList">
+                    <button ng-click="send()">Title: </button><span>{{msg.Title}}</span><br/>
                     From: <span>{{msg.FromDisplay}}</span><br/>
                     Body: <span>{{msg.Body}}</span>
-                    
-                    @*<span ng-bind="msgTitle"></span>
-                    <span ng-bind="msgFrom"></span>
-                    <span ng-bind="msgDate"></span>*@
                 </li>
             </ul>
         </div>
     </div>
+
+    <div ng-controller="myCtrl">
+        FirstName: <input ng-model="firstname">LastName: <input ng-model="lastname">
+        <h1>{{firstname}}{{lastname}}</h1>
+        <br />
+        <input type="submit" value="Submit" id="sendMsg" />
+    </div>
 </div>
 
-<br/>
-<div id="messageList"></div>
+
 
 @section Scripts {
-    <script src="/Scripts/jquery-1.10.2.js"></script>
-    <script src="/Scripts/angular.js"></script>
     <script src="/Scripts/Angular/message.js"></script>
-    <script type="text/javascript">
-        var user = $("#currentUser").text();
-        GetMessagesUser(user);
-    </script>
 }
