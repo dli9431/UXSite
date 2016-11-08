@@ -121,6 +121,9 @@ namespace UX.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [HttpPost]
+        //[AcceptVerbs("GET", "POST")]
+        [Route("SendMsg")]
         // POST: api/Messages
         [ResponseType(typeof(Message))]
         public IHttpActionResult PostMessage(Message message)
@@ -132,8 +135,9 @@ namespace UX.Controllers
 
             db.Messages.Add(message);
             db.SaveChanges();
+            return StatusCode(HttpStatusCode.OK);
 
-            return CreatedAtRoute("DefaultApi", new { id = message.MessageID }, message);
+            //return CreatedAtRoute("DefaultApi", new { id = message.MessageID }, message);
         }
 
         // DELETE: api/Messages/5
