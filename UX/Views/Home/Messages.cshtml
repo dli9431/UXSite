@@ -2,15 +2,53 @@
     ViewBag.Title = "Messages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section scripts {
+    <script src="~/App/Messages/App.js"></script>
+    <script src="~/App/Messages/ViewModels/RootViewModel.js"></script>
+    <script src="~/App/Messages/ViewModels/MessagesHomeViewModel.js"></script>
+    <script src="~/App/Messages/ViewModels/MessagesListViewModel.js"></script>
+    <script src="~/App/Messages/ViewModels/MessagesViewModel.js"></script>
+    <script src="~/App/Messages/ViewModels/MessagesDetailViewModel.js"></script>
+}
+@section jsCode {
+    angular.bootstrap(document.getElementById("messages"), ['messages']);
+}
+
 @if (ViewBag.user != null)
 {
     <span>Logged in as: </span><div id="currentUser">@ViewBag.user</div>
 }
 
+@*<h2>Messages</h2>*@
 
-<h2>Messages</h2>
+<div ng-non-bindable>
+    <div id="messages" data-ng-controller="rootViewModel">
+        <h2>{{ pageHeading }}</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ng-click="msgList()">Order List</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" ng-click="showMsg()">Order</button>&nbsp;
+                <input type="text" ng-model="orderService.orderId" />
+            </div>
+        </div>
+        <hr />
+        <div ng-view></div>
+        <hr />
+        <div>
+            <a href="#" ng-click="viewModelHelper.refreshPage('customer')">Customers</a><!-- note: NOT navigateTo -->
+            &nbsp;|&nbsp;
+            <a href="#" ng-click="viewModelHelper.refreshPage('product')">Products</a>
+            &nbsp;|&nbsp;
+            <a href="#" ng-click="viewModelHelper.refreshPage('order')">Orders</a>
+            &nbsp;|&nbsp;
+        </div>
+    </div>
+</div>
 
-<div ng-app="msg-app">
+
+@*<div ng-app="msg-app">
     <div ng-controller="MsgController">
         <div>
             <ul>
@@ -29,15 +67,11 @@
         Subject: <input type="text" ng-model="subject">
         Body: <input type="text" ng-model="body">
         
-        @*FirstName: <input ng-model="firstname">LastName: <input ng-model="lastname">
-        <h1>{{firstname}}{{lastname}}</h1>
-        <br />*@
+        
         <input type="submit" value="Submit" id="sendMsg" />
     </div>
-</div>
+</div>*@
 
-
-
-@section Scripts {
-    <script src="/App/message.js"></script>
-}
+@*FirstName: <input ng-model="firstname">LastName: <input ng-model="lastname">
+    <h1>{{firstname}}{{lastname}}</h1>
+    <br />*@

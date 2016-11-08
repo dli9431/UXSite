@@ -1,44 +1,27 @@
 ﻿
-var customerModule = angular.module('messages', ['common']);
+var messagesModule = angular.module("messages", ["common"])
+    .config(function ($routeProvider, $locationProvider) {
+        $routeProvider.when("/messages", { templateUrl: "/App/Messages/Views/MessagesHomeView.html", controller: "messagesHomeViewModel" });
+        //$routeProvider.when('/order/list', { templateUrl: '/App/Order/Views/OrderListView.html', controller: 'orderListViewModel' });
+        //$routeProvider.when('/order/show/:orderId', { templateUrl: '/App/Order/Views/OrderView.html', controller: 'orderViewModel' });
+        //$routeProvider.when('/order/detail/:orderId/:orderDetailId', { templateUrl: '/App/Order/Views/OrderDetailView.html', controller: 'orderDetailViewModel' });
+        $routeProvider.otherwise({ redirectTo: "/messages" });
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+    });
 
-customerModule.config(function ($routeProvider,
-                                $locationProvider) {
-    $routeProvider.when('/messages', {
-        templateUrl: '/App/Messages/Views/MessagesHomeView.html',
-        controller: 'messagesHomeViewModel'
-    });
-    $routeProvider.when('/messages/list', {
-        templateUrl: '/App/Messages/Views/MessagesListView.html',
-        controller: 'messagesListViewModel'
-    });
-    //$routeProvider.when('/messages/show/:Id', {
-    //    templateUrl: '/App/Customer/Views/CustomerView.html',
-    //    controller: 'customerViewModel'
-    //});
-    $routeProvider.otherwise({
-        redirectTo: '/messages'
-    });
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
-});
-
-customerModule.factory('customerService',
-    function ($http, $location, viewModelHelper) {
-        return MyApp.customerService($http,
-            $location, viewModelHelper);
-    });
+messagesModule.factory("messagesService", function ($rootScope, $http, $q, $location, viewModelHelper) { return MyApp.messagesService($rootScope, $http, $q, $location, viewModelHelper); });
 
 (function (myApp) {
-    var customerService = function ($http, $location,
-        viewModelHelper) {
+    var messagesService = function ($rootScope, $http, $q, $location, viewModelHelper) {
 
         var self = this;
 
-        self.customerId = 0;
+        self.orderId = 0;
 
         return this;
     };
-    myApp.customerService = customerService;
+    myApp.messagesService = messagesService;
 }(window.MyApp));

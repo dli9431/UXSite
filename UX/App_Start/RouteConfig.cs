@@ -22,6 +22,24 @@ namespace UX
                     action = "Messages"
                 });
 
+            routes.MapRoute(
+                name: "order",
+                url: "order/{*catch-all}",
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "Order"
+                });
+
+            routes.MapRoute(
+                name: "product",
+                url: "product/{*catch-all}",
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "Product"
+                });
+
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(

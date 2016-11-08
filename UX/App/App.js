@@ -1,13 +1,13 @@
-﻿var commonModule = angular.module('common', ['ngRoute']);
-var mainModule = angular.module('main', ['common']);
+﻿var commonModule = angular.module("common", ["ngRoute"]);
+var mainModule = angular.module("main", ["common"]);
 
-commonModule.factory('viewModelHelper',
+commonModule.factory("viewModelHelper",
     function ($http, $q, $window, $location) {
         return MyApp.viewModelHelper(
             $http, $q, $window, $location);
     });
 
-//commonModule.factory('validator', function () { return valJs.validator(); });
+//commonModule.factory("validator", function () { return valJs.validator(); });
 
 mainModule.controller("indexViewModel", function (
     $scope, $http, $q, $routeParams, $window,
@@ -17,7 +17,7 @@ mainModule.controller("indexViewModel", function (
 
     $scope.topic =
         "Integrating ASP.NET MVC and AngularJS";
-    $scope.author = "Miguel A. Castro";
+    $scope.author = "Test";
 });
 
 (function (myApp) {
@@ -46,12 +46,12 @@ mainModule.controller("indexViewModel", function (
                         failure(result);
                     }
                     else {
-                        var errorMessage = result.status + ':' + result.statusText;
+                        var errorMessage = result.status + ":" + result.statusText;
                         if (result.data != null) {
                             if (result.data.Message != null)
-                                errorMessage += ' - ' + result.data.Message;
+                                errorMessage += " - " + result.data.Message;
                             if (result.data.ExceptionMessage != null)
-                                errorMessage += ' - ' + result.data.ExceptionMessage;
+                                errorMessage += " - " + result.data.ExceptionMessage;
                         }
                         self.modelErrors = [errorMessage];
                         self.modelIsValid = false;
@@ -73,12 +73,12 @@ mainModule.controller("indexViewModel", function (
                         failure(result);
                     }
                     else {
-                        var errorMessage = result.status + ':' + result.statusText;
+                        var errorMessage = result.status + ":" + result.statusText;
                         if (result.data != null) {
                             if (result.data.Message != null)
-                                errorMessage += ' - ' + result.data.Message;
+                                errorMessage += " - " + result.data.Message;
                             if (result.data.ExceptionMessage != null)
-                                errorMessage += ' - ' + result.data.ExceptionMessage;
+                                errorMessage += " - " + result.data.ExceptionMessage;
                         }
                     }
                     if (always != null)
@@ -102,7 +102,7 @@ mainModule.controller("indexViewModel", function (
         }
 
         self.clone = function (obj) {
-            return JSON.parse(JSON.stringify(obj))
+            return JSON.parse(JSON.stringify(obj));
         }
 
         self.querystring = function (param) {

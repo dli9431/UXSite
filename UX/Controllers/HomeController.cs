@@ -34,6 +34,13 @@ namespace UX.Controllers
             return View();
         }
 
+        public ActionResult Product()
+        {
+            ViewBag.Message = "Product Section";
+
+            return View();
+        }
+
         public ActionResult UserList()
         {
             if (User.Identity.IsAuthenticated) return View();

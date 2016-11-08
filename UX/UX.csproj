@@ -213,13 +213,15 @@
     <Content Include="App\Chat\chat.js" />
     <Content Include="App\Messages\App.js" />
     <Content Include="App\Messages\message.js" />
-    <Content Include="App\Messages\ViewModels\CustomerHomeViewModel.js" />
-    <Content Include="App\Messages\ViewModels\CustomerListViewModel.js" />
-    <Content Include="App\Messages\ViewModels\CustomerViewModel.js" />
+    <Content Include="App\Messages\ViewModels\OrderDetailViewModel.js" />
+    <Content Include="App\Messages\ViewModels\MessagesHomeViewModel.js" />
+    <Content Include="App\Messages\ViewModels\OrderListViewModel.js" />
+    <Content Include="App\Messages\ViewModels\OrderViewModel.js" />
     <Content Include="App\Messages\ViewModels\RootViewModel.js" />
-    <Content Include="App\Messages\Views\CustomerHomeView.html" />
-    <Content Include="App\Messages\Views\CustomerListView.html" />
-    <Content Include="App\Messages\Views\CustomerView.html" />
+    <Content Include="App\Messages\Views\OrderDetailView.html" />
+    <Content Include="App\Messages\Views\OrderHomeView.html" />
+    <Content Include="App\Messages\Views\OrderListView.html" />
+    <Content Include="App\Messages\Views\OrderView.html" />
     <Content Include="App\Order\App.js" />
     <Content Include="App\Order\ViewModels\OrderDetailViewModel.js" />
     <Content Include="App\Order\ViewModels\OrderHomeViewModel.js" />
@@ -230,6 +232,14 @@
     <Content Include="App\Order\Views\OrderHomeView.html" />
     <Content Include="App\Order\Views\OrderListView.html" />
     <Content Include="App\Order\Views\OrderView.html" />
+    <Content Include="App\Product\App.js" />
+    <Content Include="App\Product\ViewModels\ProductHomeViewModel.js" />
+    <Content Include="App\Product\ViewModels\ProductListViewModel.js" />
+    <Content Include="App\Product\ViewModels\ProductViewModel.js" />
+    <Content Include="App\Product\ViewModels\RootViewModel.js" />
+    <Content Include="App\Product\Views\ProductHomeView.html" />
+    <Content Include="App\Product\Views\ProductListView.html" />
+    <Content Include="App\Product\Views\ProductView.html" />
     <Content Include="App\Validator.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -304,6 +314,7 @@
     <Content Include="Views\Home\UserList.cshtml" />
     <Content Include="Views\Home\Messages.cshtml" />
     <Content Include="Views\Home\Order.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
