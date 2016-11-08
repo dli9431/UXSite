@@ -14,10 +14,23 @@ namespace UX
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "messages",
+                url: "messages/{*catch-all}",
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "Messages"
+                });
+
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
         }
     }
 }

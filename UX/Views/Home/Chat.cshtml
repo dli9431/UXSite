@@ -35,7 +35,7 @@
     <script src="/Scripts/jquery.signalR-2.2.1.js"></script>
     <script src="/signalr/hubs"></script>
     <script src="/Scripts/angular.js"></script>
-    <script src="/Scripts/Angular/chat.js"></script>
+    <script src="~/App/Chat/chat.js"></script>
     @*<script type="text/javascript">
         $(document).ready(function() {
             var email = $("#currentUser").text();
@@ -47,4 +47,7 @@
         var user = $("#currentUser").text();
         GetMessagesUser(user);
     </script>*@
+}
+@section jsCode {
+    @*angular.bootstrap(document.getElementById("chat"), ['chat']);*@    
 }

@@ -27,6 +27,13 @@ namespace UX.Controllers
             return View();
         }
 
+        public ActionResult Order()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
         public ActionResult UserList()
         {
             if (User.Identity.IsAuthenticated) return View();

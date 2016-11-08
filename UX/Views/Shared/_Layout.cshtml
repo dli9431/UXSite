@@ -6,10 +6,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <script src="/Scripts/jquery-1.10.2.js"></script>
-    <script src="/Scripts/angular.js"></script>
 </head>
-<body>
+<body data-ng-app="main">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -44,8 +42,20 @@
         </footer>
     </div>
 
+    @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+            window.MyApp = {};
+            MyApp.rootPath = '@Url.Content("~")';
+    </script>
+    <script src="~/App/Validator.js"></script>
+    <script src="~/App/App.js"></script>
+    @*@RenderSection("scripts", required: false)*@
+    <script type="text/javascript">
+        @RenderSection("jsCode", required: false)
+    </script>
 </body>
 </html>

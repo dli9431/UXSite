@@ -37,18 +37,54 @@ namespace UX.Controllers
             {
                 var user = db.Users.FirstOrDefault(a => a.Email == id);
                 var msgs = db.Messages.Where(a => a.ToDisplay == user.DisplayName).ToList();
-                if (msgs.Count < 0)
+                if (msgs.Count <= 0)
                 {
                     return NotFound();
-                }
-                if (msgs.Count == 0)
-                {
-                    return Ok("No messages");
                 }
                 return Ok(msgs);
             }
             return NotFound();
         }
+
+        [HttpPut]
+        [Route("PutMsg")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutMsg(string id = null, string to = null, string title = null, string body = null)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+            if (id != null)
+            {
+                var fromUser = db.Users.FirstOrDefault(a => a.Email == id);
+                if (to != null && title != null && body != null)
+                {
+                    Message msg = new Message
+                    {
+                        ToDisplay = to,
+                        FromDisplay = fromUser.DisplayName,
+                        Created = DateTime.Now,
+                        Title = title,
+                        Body = body
+                    };
+                    try
+                    {
+                        db.Messages.Add(msg);
+                        db.SaveChanges();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        throw;
+                    }
+                }
+            }
+                                   
+            //db.Entry(message).State = EntityState.Modified;
+            
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
 
         // PUT: api/Messages/5
         [ResponseType(typeof(void))]
