@@ -34,6 +34,7 @@ mainModule.controller("indexViewModel", function (
             self.modelIsValid = true;
         }
 
+
         self.apiGet = function (uri, data, success, failure, always) {
             self.modelIsValid = true;
             $http.get(MyApp.rootPath + uri, data)
@@ -46,12 +47,12 @@ mainModule.controller("indexViewModel", function (
                         failure(result);
                     }
                     else {
-                        var errorMessage = result.status + ":" + result.statusText;
+                        var errorMessage = result.status + ':' + result.statusText;
                         if (result.data != null) {
                             if (result.data.Message != null)
-                                errorMessage += " - " + result.data.Message;
+                                errorMessage += ' - ' + result.data.Message;
                             if (result.data.ExceptionMessage != null)
-                                errorMessage += " - " + result.data.ExceptionMessage;
+                                errorMessage += ' - ' + result.data.ExceptionMessage;
                         }
                         self.modelErrors = [errorMessage];
                         self.modelIsValid = false;

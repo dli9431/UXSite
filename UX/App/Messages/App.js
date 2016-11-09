@@ -2,10 +2,11 @@
 var messagesModule = angular.module("messages", ["common"])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider.when("/messages", { templateUrl: "/App/Messages/Views/MessagesHomeView.html", controller: "messagesHomeViewModel" });
-        $routeProvider.when('/messages/list', { templateUrl: '/App/Messages/Views/MessagesListView.html', controller: 'messagesListViewModel' });
-        $routeProvider.when('/messages/send', { templateUrl: '/App/Messages/Views/MessagesSendView.html', controller: 'messagesSendViewModel' });
-        
-        //$routeProvider.when('/order/detail/:orderId/:orderDetailId', { templateUrl: '/App/Order/Views/OrderDetailView.html', controller: 'orderDetailViewModel' });
+        $routeProvider.when("/messages/list", { templateUrl: "/App/Messages/Views/MessagesListView.html", controller: "messagesListViewModel" });
+        $routeProvider.when("/messages/send", { templateUrl: "/App/Messages/Views/MessagesSendView.html", controller: "messagesSendViewModel" });
+        $routeProvider.when("/messages/sent", { templateUrl: "/App/Messages/Views/MessagesSentView.html", controller: "messagesSentViewModel" });
+
+        //$routeProvider.when("/order/detail/:orderId/:orderDetailId", { templateUrl: "/App/Order/Views/OrderDetailView.html", controller: "orderDetailViewModel" });
         $routeProvider.otherwise({ redirectTo: "/messages" });
         $locationProvider.html5Mode({
             enabled: true,

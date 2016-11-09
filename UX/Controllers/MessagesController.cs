@@ -30,12 +30,12 @@ namespace UX.Controllers
         // Gets all of a user's messages
         [HttpGet]
         [Route("GetMsgs")]
-        public IHttpActionResult GetMsgs(string id)
+        public IHttpActionResult GetMsgs()
         {
-            var current = HttpContext.Current.User.Identity.GetUserName();
-            if (current == id)
+            var id = HttpContext.Current.User.Identity.GetUserId();
+            if (id != null)
             {
-                var user = db.Users.FirstOrDefault(a => a.Email == id);
+                var user = db.Users.FirstOrDefault(a => a.Id == id);
                 var msgs = db.Messages.Where(a => a.ToDisplay == user.DisplayName).ToList();
                 if (msgs.Count <= 0)
                 {
@@ -51,16 +51,17 @@ namespace UX.Controllers
         [HttpPost]
         [Route("PutMsg")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutMsg(string id = null, string to = null, string title = null, string body = null)
+        public IHttpActionResult PutMsg(string to = null, string title = null, string body = null)
         {
             //if (!ModelState.IsValid)
             //{
             //    return BadRequest(ModelState);
             //}
+            var id = HttpContext.Current.User.Identity.GetUserId();
             if (id != null)
             {
-                var fromUser = db.Users.FirstOrDefault(a => a.Email == id);
-                if (to != null && title != null && body != null)
+                var fromUser = db.Users.FirstOrDefault(a => a.Id == id);
+                if (fromUser != null && to != null && title != null && body != null)
                 {
                     Message msg = new Message
                     {

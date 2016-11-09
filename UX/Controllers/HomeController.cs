@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace UX.Controllers
 {
@@ -46,7 +47,8 @@ namespace UX.Controllers
             ViewBag.Message = "Tests Section";
             if (User.Identity.IsAuthenticated)
             {
-                ViewBag.user = User.Identity.Name;
+                //ViewBag.user = User.Identity.Name;
+                //ViewBag.user = User.Identity.GetUserId();
                 return View();
             }
             return RedirectToAction("Index");

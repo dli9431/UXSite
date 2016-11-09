@@ -24,22 +24,28 @@ namespace UX.Controllers
         // Gets all of a user's available tests
         [HttpGet]
         [Route("GetTests")]
-        public IHttpActionResult GetTests(string id)
+        //public IHttpActionResult GetTests()
+        public HttpResponseMessage GetTests(HttpRequestMessage request)
         {
             //var current = HttpContext.Current.User.Identity.GetUserName();
+            
+            var id = HttpContext.Current.User.Identity.GetUserId();
             if (id != null)
             {
-                var user = db.Users.FirstOrDefault(a => a.Email == id);
+                var user = db.Users.FirstOrDefault(a => a.Id == id);
                 List<QaTest> tests = new List<QaTest>();
-                tests = db.Users.Where(a => a.Email == id).SelectMany(a => a.QaTests).ToList();
+                tests = db.Users.Where(a => a.Id == id).SelectMany(a => a.QaTests).ToList();
                 //var tests = db.QaTests.Where(a => a.ApplicationUsers.Contains(user)).Select(a => a.).ToList();
                 if (tests.Count <= 0)
                 {
-                    return NotFound();
+                    //return NotFound();
                 }
-                return Ok(tests);
+                return request.CreateResponse<QaTest[]>(HttpStatusCode.OK, tests.ToArray());
+                //return Ok(tests);
+                //return Json(tests);
             }
-            return NotFound();
+            //return NotFound();
+            return request.CreateErrorResponse(HttpStatusCode.NotFound, "Not Found");
         }
 
         ////PUT: api/Messages/PutMsg

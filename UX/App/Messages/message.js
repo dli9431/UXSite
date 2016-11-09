@@ -11,8 +11,7 @@ app.controller("MsgController",
         
         $http({
             url: "/api/Messages/GetMsgs",
-            method: "GET",
-            params: { id: email }
+            method: "GET"
         }).then(function (response) {
             msgs = response.messages;
             //console.log(msgs);

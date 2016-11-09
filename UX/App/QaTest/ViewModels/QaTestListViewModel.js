@@ -8,9 +8,8 @@
     }
 
     $scope.refreshTests = function () {
-        var user = $("#currentUser").text();
-        viewModelHelper.apiGet("api/Tests/GetTests?id=" + user, null,
-            function (result) {
+        $http.get("/api/Tests/GetTests")
+            .then(function(result) {
                 $scope.tests = result.data;
             });
     }

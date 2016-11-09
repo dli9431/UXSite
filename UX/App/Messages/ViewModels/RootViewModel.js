@@ -19,6 +19,9 @@
     $scope.sendMsg = function () {
         viewModelHelper.navigateTo("messages/send");
     }
+    //$scope.submitMsg = function () {
+    //    viewModelHelper.navigateTo("messages/sent");
+    //}
 
     //$scope.showOrder = function () {
     //    if (orderService.orderId != 0) {

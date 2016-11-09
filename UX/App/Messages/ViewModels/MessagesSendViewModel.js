@@ -11,9 +11,8 @@
     $("#sendMsg")
         .click(function() {
             //.sendMsg = function (user, to, subject, body) {
-            viewModelHelper.apiPost("api/Messages/PutMsg?id=" +
-                user +
-                "&to=" +
+            viewModelHelper.apiPost("api/Messages/PutMsg?" +
+                "to=" +
                 $scope.todisplay +
                 "&title=" +
                 $scope.subject +
@@ -21,7 +20,8 @@
                 $scope.body,
                 null,
                 function(result) {
-                    $scope.messages = result.data;
+                    //$scope.messages = "Message Sent!";
+                    $location.path("/messages/sent");
                 });
         });
 
