@@ -18,7 +18,11 @@ namespace DataModel
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<Entities, Configuration>());
         }
 
-        public Entities() : base("DefaultConnection", throwIfV1Schema: false) {}
+        public Entities()
+            : base("DefaultConnection", throwIfV1Schema: false)
+        {
+            Configuration.ProxyCreationEnabled = false;
+        }
 
         public static Entities Create()
         {
@@ -28,6 +32,7 @@ namespace DataModel
         public DbSet<Message> Messages { get; set; }
         public IDbSet<Product> Products { get; set; }
         public DbSet<SystemInfo> SystemInfos { get; set; }
+        public DbSet<QaTest> QaTests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

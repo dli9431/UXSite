@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Tests";
+}
+@section scripts {
+    <script src="~/App/QaTest/App.js"></script>
+    <script src="~/App/QaTest/ViewModels/RootViewModel.js"></script>
+    <script src="~/App/QaTest/ViewModels/QaTestHomeViewModel.js"></script>
+    <script src="~/App/QaTest/ViewModels/QaTestListViewModel.js"></script>
+}
+@section jsCode {
+    angular.bootstrap(document.getElementById("qatest"), ["qatest"]);
+}
+
+@if (ViewBag.user != null)
+{
+    <span>Logged in as: </span><div id="currentUser">@ViewBag.user</div>
+}
+
+<div ng-non-bindable>
+    <div id="qatest" data-ng-controller="rootViewModel">
+        <h2>{{ pageHeading }}</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ng-click="qaTestList()">Tests</button>
+            </div>
+        </div>
+        <hr />
+        <div ng-view></div>
+        <hr />
+        <div>
+            <a href="#" ng-click="viewModelHelper.refreshPage('customer')">Customers</a><!-- note: NOT navigateTo -->
+            &nbsp;|&nbsp;
+            <a href="#" ng-click="viewModelHelper.refreshPage('product')">Products</a>
+            &nbsp;|&nbsp;
+            <a href="#" ng-click="viewModelHelper.refreshPage('order')">Orders</a>
+            &nbsp;|&nbsp;
+        </div>
+    </div>
+</div>

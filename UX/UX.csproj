@@ -196,6 +196,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -242,6 +243,12 @@
     <Content Include="App\Product\Views\ProductHomeView.html" />
     <Content Include="App\Product\Views\ProductListView.html" />
     <Content Include="App\Product\Views\ProductView.html" />
+    <Content Include="App\QaTest\App.js" />
+    <Content Include="App\QaTest\ViewModels\QaTestListViewModel.js" />
+    <Content Include="App\QaTest\ViewModels\QaTestHomeViewModel.js" />
+    <Content Include="App\QaTest\ViewModels\RootViewModel.js" />
+    <Content Include="App\QaTest\Views\QaTestListView.html" />
+    <Content Include="App\QaTest\Views\QaTestHomeView.html" />
     <Content Include="App\Validator.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -317,6 +324,7 @@
     <Content Include="Views\Home\Messages.cshtml" />
     <Content Include="Views\Home\Order.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\QaTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,6 +23,15 @@ namespace UX
                 });
 
             routes.MapRoute(
+                name: "tests",
+                url: "tests/{*catch-all}",
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "QaTest"
+                });
+
+            routes.MapRoute(
                 name: "order",
                 url: "order/{*catch-all}",
                 defaults: new

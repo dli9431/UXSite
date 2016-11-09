@@ -1,0 +1,29 @@
+﻿<h3>Tests List</h3>
+<div>
+    <a href="#" ng-click="refreshTests()"><span class="glyphicon glyphicon-refresh"></span></a>
+</div>
+<div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Created</th>
+                <th>End</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Title</th>
+                <th>Instructions</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="t in tests">
+            <tr>
+                <!--<td><a href="#" ng-click="showProduct(p)">show</a></td>-->
+                <td>{{ t.Created }}</td>
+                <td>{{ t.End}}</td>
+                <td>{{ t.Priority }}</td>
+                <td>{{ t.Status }}</td>
+                <td>{{ t.Title }}</td>
+                <td>{{ t.Instructions }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

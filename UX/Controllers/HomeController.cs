@@ -41,6 +41,17 @@ namespace UX.Controllers
             return View();
         }
 
+        public ActionResult QaTest()
+        {
+            ViewBag.Message = "Tests Section";
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.user = User.Identity.Name;
+                return View();
+            }
+            return RedirectToAction("Index");
+        }
+
         public ActionResult UserList()
         {
             if (User.Identity.IsAuthenticated) return View();
