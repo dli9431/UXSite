@@ -9,6 +9,7 @@
     <script src="~/App/Messages/ViewModels/MessagesListViewModel.js"></script>
     <script src="~/App/Messages/ViewModels/MessagesViewModel.js"></script>
     <script src="~/App/Messages/ViewModels/MessagesDetailViewModel.js"></script>
+    <script src="~/App/Messages/ViewModels/MessagesSendViewModel.js"></script>
 }
 @section jsCode {
     angular.bootstrap(document.getElementById("messages"), ['messages']);
@@ -25,13 +26,16 @@
     <div id="messages" data-ng-controller="rootViewModel">
         <h2>{{ pageHeading }}</h2>
         <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ng-click="msgList()">Order List</button>
+            <div class="col-md-2">
+                <button class="btn btn-primary" ng-click="msgList()">Show Messages</button>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
+                <button class="btn btn-primary" ng-click="sendMsg()">Send Messages</button>
+            </div>
+            @*<div class="col-md-4">
                 <button class="btn btn-primary" ng-click="showMsg()">Order</button>&nbsp;
                 <input type="text" ng-model="orderService.orderId" />
-            </div>
+            </div>*@
         </div>
         <hr />
         <div ng-view></div>

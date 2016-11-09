@@ -14,7 +14,10 @@
     }
 
     $scope.msgList = function () {
-        viewModelHelper.navigateTo('messages/list');
+        viewModelHelper.navigateTo("messages/list");
+    }
+    $scope.sendMsg = function () {
+        viewModelHelper.navigateTo("messages/send");
     }
 
     //$scope.showOrder = function () {

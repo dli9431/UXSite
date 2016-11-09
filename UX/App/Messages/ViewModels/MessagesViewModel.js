@@ -3,21 +3,17 @@
     $scope.viewModelHelper = viewModelHelper;
     $scope.messagesService = messagesService;
 
-    //var initialize = function () {
-    //    $scope.refreshOrder($routeParams.orderId);
-    //}
+    var initialize = function () {
+        $scope.refreshMessages($routeParams.msgId);
+    }
 
-    //$scope.refreshOrder = function (orderId) {
-    //    viewModelHelper.apiGet('api/order/' + orderId, null,
-    //        function (result) {
-    //            orderService.orderId = orderId;
-    //            $scope.order = result.data;
-    //        });
-    //}
-
-    //$scope.showOrderDetail = function (orderId, orderDetail) {
-    //    viewModelHelper.navigateTo('order/detail/' + orderId + '/' + orderDetail.OrderDetailId);
-    //}
-
+    $scope.refreshMessages = function (msgId) {
+        viewModelHelper.apiGet('api/Messages/GetMsg' + msgId, null,
+            function (result) {
+                messagesService.msgId = msgId;
+                $scope.messages = result.data;
+            });
+    }
+    
     initialize();
 });

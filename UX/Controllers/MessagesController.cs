@@ -46,7 +46,9 @@ namespace UX.Controllers
             return NotFound();
         }
 
-        [HttpPut]
+        //PUT: api/Messages/PutMsg
+        //[HttpPut]
+        [HttpPost]
         [Route("PutMsg")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutMsg(string id = null, string to = null, string title = null, string body = null)
